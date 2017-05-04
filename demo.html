@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Demo</title>
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="themes/maccaco/projekktor.style.css" type="text/css" media="screen" />
+</head>
+
+<body>
+
+    <div id="Player"></div>
+
+    <script type="text/javascript" src="lib/jQuery/1.12.4/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="dist/projekktor-1.6.2.js"></script>
+
+    <script type="text/javascript">
+        //window.p = projekktor('#tvplayer', $.extend({}, DEFAULT_CONFIG, { playlist: PLAYLIST }),
+
+        $(document).ready(function () {
+            console.log(window.projekktor);
+
+            var player = window.projekktor('#Player', {
+                width: 760,
+                autoplay: true,
+                height: 426,
+                imageScaling: "fixed",
+                cookiePath: '/projekktor/',
+                debug: true,
+                playlist: [
+                    // Video 0:
+                    {
+                        0: { src: 'http://www.projekktor.com/wp-content/manual/intro.lo.mp4', type: 'video/mp4' }
+                    },
+                    // Video 1:
+                    {
+                        0: {
+                            src: "http://yt-dash-mse-test.commondatastorage.googleapis.com/media/feelings_vp9-20130806-manifest.mpd",
+                            type: 'application/dash+xml'
+                        }
+                    },
+                    // Video 2:
+                    {
+                        0: {
+                            src: "https://r.dcs.redcdn.pl/dash/o2/TVP/embeddrm/out/dr-quinn-odc-12-redo.mp4/Manifest.ism",
+                            playready: 'https://www.tvp.pl/sess/playreadyProxy.php?key=ZEyMKmaPtmYn0v6pOqsCng~~&video_id=30003733',
+                            widevine: 'https://www.tvp.pl/sess/widevineProxy.php?key=ZEyMKmaPtmYn0v6pOqsCng~~&video_id=30003733',
+                            type: 'application/dash+xml'
+                        }
+                    }
+                ]
+
+            })
+        });
+    </script>
+</body>
+
+</html>
