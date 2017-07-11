@@ -73,6 +73,7 @@ module.exports = function (grunt) {
           {flag: "msehls", src: "src/models/player.audio.video.mse.hls.js"},
           {flag: "videojs", src: "src/models/player.videojs.js"},
           {flag: "youtube", src: "src/models/player.youtube.js" }, 
+          {flag: "dash", src: "src/models/player.audio.video.dash.js" },
           "src/plugins/projekktor.display.js",
           "src/plugins/projekktor.controlbar.js",
           "src/plugins/projekktor.contextmenu.js",
@@ -559,7 +560,7 @@ module.exports = function (grunt) {
   // Default build that mirrors the Projekktor distribution
   grunt.registerTask("default", [
     "clean",
-    "build:*:*:+playlist:-youtube:+html:+osmf:+osmfhls:+osmfmss:+msehls:-plugins/logo:-plugins/ima:-plugins/postertitle:-plugins/share:-plugins/tracking",
+    "build:*:*:+playlist:-youtube:+html:+osmf:+osmfhls:+osmfmss:+msehls:+dash:-plugins/logo:-plugins/ima:-plugins/postertitle:-plugins/share:-plugins/tracking",
     "uglify:all",
     "dist:*",
     "compare_size",
